@@ -60,6 +60,7 @@ public struct HighlightedTextEditor: NSViewRepresentable, HighlightingTextEditor
             font: font
         )
         textView.delegate = context.coordinator
+        textView.attributedText = NSAttributedString(string: text)
         updateTextViewModifiers(textView, isFirstRender: true)
         
         return textView
@@ -71,6 +72,7 @@ public struct HighlightedTextEditor: NSViewRepresentable, HighlightingTextEditor
         let highlightedText = HighlightedTextEditor.getHighlightedText(
             text: text,
             highlightRules: highlightRules,
+            existingAttributedString: view.attributedText,
             font: font,
             color: color
         )
