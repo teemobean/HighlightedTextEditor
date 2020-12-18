@@ -803,7 +803,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kyle-n/HighlightedTextEditor";
 			requirement = {
-				branch = main;
+				branch = speed2;
 				kind = branch;
 			};
 		};
