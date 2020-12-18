@@ -60,7 +60,7 @@ public struct HighlightedTextEditor: NSViewRepresentable, HighlightingTextEditor
             font: font
         )
         textView.delegate = context.coordinator
-        textView.attributedText = NSAttributedString(string: text)
+        textView.attributedText = NSMutableAttributedString(string: text)
         updateTextViewModifiers(textView, isFirstRender: true)
         
         return textView
@@ -69,16 +69,15 @@ public struct HighlightedTextEditor: NSViewRepresentable, HighlightingTextEditor
     public func updateNSView(_ view: CustomTextView, context: Context) {
         view.text = text
         
-        let highlightedText = HighlightedTextEditor.getHighlightedText(
+        HighlightedTextEditor.getHighlightedText(
             text: text,
             highlightRules: highlightRules,
-            existingAttributedString: view.attributedText,
+            highlightedString: view.attributedText,
             font: font,
             color: color
         )
         updateTextViewModifiers(view, isFirstRender: false)
         
-        view.attributedText = highlightedText
         view.selectedRanges = context.coordinator.selectedRanges
     }
     
@@ -146,7 +145,7 @@ public final class CustomTextView: NSView {
     
     weak var delegate: NSTextViewDelegate?
     
-    var attributedText: NSAttributedString {
+    var attributedText: NSMutableAttributedString {
         didSet {
             textView.textStorage?.setAttributedString(attributedText)
         }

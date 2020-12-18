@@ -86,8 +86,7 @@ extension HighlightingTextEditor {
         get { SystemColorAlias() }
     }
     
-    static func getHighlightedText(text: String, highlightRules: [HighlightRule], existingAttributedString: NSAttributedString, font: SystemFontAlias?, color: SystemColorAlias?) -> NSMutableAttributedString {
-        let highlightedString = NSMutableAttributedString(attributedString: existingAttributedString)
+    static func getHighlightedText(text: String, highlightRules: [HighlightRule], highlightedString: NSMutableAttributedString, font: SystemFontAlias?, color: SystemColorAlias?) {
         highlightedString.mutableString.setString(text)
         let all = NSRange(location: 0, length: text.count)
         
@@ -115,7 +114,5 @@ extension HighlightingTextEditor {
                 }
             }
         }
-        
-        return highlightedString
     }
 }
