@@ -11,6 +11,7 @@
 import SwiftUI
 import AppKit
 import Combine
+import FastNSTextStorage
 
 public struct HighlightedTextEditor: NSViewRepresentable, HighlightingTextEditor {
     
@@ -205,8 +206,7 @@ public final class CustomTextView: NSView {
     
     private lazy var textView: NSTextView = {
         let contentSize = scrollView.contentSize
-        let textStorage = NSTextStorage()
-        
+        let textStorage = HTEFastNSTextStorage()
         
         let layoutManager = NSLayoutManager()
         textStorage.addLayoutManager(layoutManager)

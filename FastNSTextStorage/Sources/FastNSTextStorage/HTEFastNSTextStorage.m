@@ -48,9 +48,6 @@
 }
 
 - (void)processEditing {
-    //
-    // Apply Custom Styling Here!
-    //
     [super processEditing];
 }
 
