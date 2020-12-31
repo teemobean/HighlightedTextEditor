@@ -14,9 +14,13 @@ public let package = Package(
             name: "HighlightedTextEditor",
             targets: ["HighlightedTextEditor"]),
     ],
+    dependencies: [
+        .package(name: "FastNSTextStorage", path: "FastNSTextStorage")
+    ],
     targets: [
         .target(
             name: "HighlightedTextEditor",
-            dependencies: [])
+            dependencies: ["FastNSTextStorage"]
+        )
     ]
 )
