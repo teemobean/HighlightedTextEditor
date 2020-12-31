@@ -15,7 +15,7 @@ public let package = Package(
             targets: ["HighlightedTextEditor"]),
     ],
     dependencies: [
-        .package(name: "FastNSTextStorage", path: "FastNSTextStorage")
+        .package(url: "https://github.com/kyle-n/FastNSTextStorage", from: Version("1.0.0"))
     ],
     targets: [
         .target(

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FastNSTextStorage",
+        "repositoryURL": "https://github.com/kyle-n/FastNSTextStorage",
+        "state": {
+          "branch": null,
+          "revision": "5873f3309718674e2c59ecff6a79b6349dd0cf1c",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
