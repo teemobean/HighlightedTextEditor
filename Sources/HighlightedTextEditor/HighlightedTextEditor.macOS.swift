@@ -108,18 +108,14 @@ extension HighlightedTextEditor {
         }
         
         public func textDidBeginEditing(_ notification: Notification) {
-            guard let textView = notification.object as? NSTextView else {
-                return
-            }
+            guard let textView = notification.object as? NSTextView else { return }
             
             self.parent.text = textView.string
             self.parent.onEditingChanged()
         }
         
         public func textDidChange(_ notification: Notification) {
-            guard let textView = notification.object as? NSTextView else {
-                return
-            }
+            guard let textView = notification.object as? NSTextView else { return }
             let content: String = String(textView.textStorage?.string ?? "")
             
             self.parent.text = content
@@ -127,9 +123,7 @@ extension HighlightedTextEditor {
         }
         
         public func textDidEndEditing(_ notification: Notification) {
-            guard let textView = notification.object as? NSTextView else {
-                return
-            }
+            guard let textView = notification.object as? NSTextView else { return }
             
             self.parent.text = textView.string
             self.parent.onCommit()
