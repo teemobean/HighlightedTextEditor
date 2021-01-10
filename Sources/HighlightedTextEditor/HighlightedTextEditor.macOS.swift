@@ -60,14 +60,13 @@ public struct HighlightedTextEditor: NSViewRepresentable, HighlightingTextEditor
             font: font
         )
         textView.delegate = context.coordinator
+        textView.text = text
         updateTextViewModifiers(textView, isFirstRender: true)
         
         return textView
     }
     
     public func updateNSView(_ view: CustomTextView, context: Context) {
-        view.text = text
-        
         let highlightedText = HighlightedTextEditor.getHighlightedText(
             text: text,
             highlightRules: highlightRules,
