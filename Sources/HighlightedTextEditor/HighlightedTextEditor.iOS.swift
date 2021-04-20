@@ -48,7 +48,10 @@ public struct HighlightedTextEditor: UIViewRepresentable, HighlightingTextEditor
         let textView = UITextView()
         textView.delegate = context.coordinator
         textView.isEditable = true
-        textView.isScrollEnabled = true
+        textView.isScrollEnabled = false
+        textView.contentInset = .zero
+        textView.textContainerInset = .zero
+        textView.textContainer.lineFragmentPadding = 0.0
         textView.font = font
         updateTextViewModifiers(textView)
 
@@ -72,7 +75,10 @@ public struct HighlightedTextEditor: UIViewRepresentable, HighlightingTextEditor
             uiView.attributedText = highlightedText
         }
         updateTextViewModifiers(uiView)
-        uiView.isScrollEnabled = true
+        uiView.isScrollEnabled = false
+        uiView.contentInset = .zero
+        uiView.textContainerInset = .zero
+        uiView.textContainer.lineFragmentPadding = 0.0
         uiView.selectedTextRange = context.coordinator.selectedTextRange
         context.coordinator.updatingUIView = false
     }
