@@ -52,6 +52,7 @@ public struct HighlightedTextEditor: UIViewRepresentable, HighlightingTextEditor
         textView.contentInset = .zero
         textView.textContainerInset = .zero
         textView.textContainer.lineFragmentPadding = 0.0
+        textView.textContainer.maximumNumberOfLines = 1
         textView.font = font
         updateTextViewModifiers(textView)
 
