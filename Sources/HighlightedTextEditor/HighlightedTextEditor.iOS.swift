@@ -53,6 +53,7 @@ public struct HighlightedTextEditor: UIViewRepresentable, HighlightingTextEditor
         textView.textContainerInset = .zero
         textView.textContainer.lineFragmentPadding = 0.0
         textView.textContainer.maximumNumberOfLines = 1
+        textView.textContainer.lineBreakMode = .byTruncatingTail
         textView.font = font
         updateTextViewModifiers(textView)
 
