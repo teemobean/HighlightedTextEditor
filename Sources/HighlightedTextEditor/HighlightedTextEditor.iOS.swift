@@ -134,6 +134,13 @@ public struct HighlightedTextEditor: UIViewRepresentable, HighlightingTextEditor
         public func textViewDidEndEditing(_ textView: UITextView) {
             parent.onCommit()
         }
+        
+        public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+            let existingLines = textView.text.components(separatedBy: CharacterSet.newlines)
+            let newLines = text.components(separatedBy: CharacterSet.newlines)
+            let linesAfterChange = existingLines.count + newLines.count - 1
+            return linesAfterChange <= 1
+        }
     }
 }
 
